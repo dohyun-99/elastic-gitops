@@ -21,6 +21,6 @@ spec:
             - name: SPRING_PROFILES_ACTIVE
               value: "prd"
           ports:
-          - containerPort: 8080
+            - containerPort: 8080
       imagePullSecrets:
-        - name: github-secret
+        - name: github-secret
