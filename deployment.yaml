@@ -22,3 +22,5 @@ spec:
             value: "prd"
         ports:
         - containerPort: 8080
+        imagePullSecrets:
+        - name: github-secret
