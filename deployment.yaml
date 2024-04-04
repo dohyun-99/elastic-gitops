@@ -14,11 +14,15 @@ spec:
         app: backend
     spec:
       containers:
-        - name: backend
-          image: ghcr.io/dohyun-99/edu_baseinfo:v1 #ghcr.io/dohyun-99/elastic_backend:v1
-          imagePullPolicy: Always
-          env:
-            - name: SPRING_PROFILES_ACTIVE
-              value: "prd"
-          ports:
-            - containerPort: 8080
+      - name: backend
+        image: ghcr.io/dohyun-99/edu_baseinfo:v1
+        imagePullPolicy: Always
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "prd"
+          # - name: JAVA_TOOL_OPTIONS 
+          #   value: "-javaagent:elastic-apm-agent-1.43.0.jar -Delastic.apm.server_url=https://6e78510bde4d4448946b13d3479bc154.apm.us-central1.gcp.cloud.es.io:443 -Delastic.apm.environment=prd -Dservice_name=icis-tr-backend -Delastic.apm.secret_token=26uqqwhO9WcHD8RR2u"
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: argocd-edu2-secret
